@@ -1,11 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet"  href="{% static 'app/styles/main.css' %}" type="text/css">
 </head>
 <body>
-    <h1>Home Page</h1>
+    <div class="header">
+        <h3>LE MONDE</h3>
+    </div>
+    <div class="content">
+        <h1>VISITER LE MONDE</h1>
+        <div class="next">
+            <a href="/list">VOIR</a>
+        </div>
+    </div>
+    <!-- <iframe src="https://assets.pinterest.com/ext/embed.html?id=774124929796625" height="1167" width="600" frameborder="0" scrolling="no" >
+
+    </iframe> -->
 </body>
 </html>
