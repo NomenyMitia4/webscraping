@@ -4,18 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{pays}}</title>
+    <link rel="stylesheet" href="{% static 'app/styles/details.css' %}" type="text/css">
+    <title>{{datas.pays}}</title>
 </head>
 <body>
-    <h1>Details</h1>
-    <p>{{datas.population}}</p>
-    <p>{{datas.superficie}}</p>
-    <p>{{datas.langue}}</p>
-    <p>{{datas.capitale}}</p>
-    <p>{{datas.habitant}}</p>
-    <img src="https://maps.googleapis.com/maps/api/staticmap?center=Berkeley,CA&zoom=14&size=400x400&key=AIzaSyB877-F99zuVUUH6I90ETAttfhufnjCsTQ" width="200px" height="200px" alt="">
+    <div class="content">
+        <div class="details">
+            <h1>{{datas.pays}}</h1>
+            <p>NB Population: </p><span class="data">{{datas.population}}</span>
+            <br>
+            <p>Superficie: </p><span class="data">{{datas.superficie}}</span>
+            <br>
+            <p>Langue: </p><span class="data">{{datas.langue}}</span>
+            <br>
+            <p>Capitale: </p><span class="data">{{datas.capitale}}</span>
+            <br>
+            <p>Gentilé: </p><span class="data">{{datas.habitant}}</span>
+            <br>
+            <p>Latitude: </p><span class="data">{{datas.latitude}}</span>
+            <br>
+            <p>Longitude: </p><span class="data">{{datas.longitude}}</span>
+        </div>
+        <div class="map">{{datas.map | safe}}</div>
+    </div>
 </body>
-<script>
-    let apikey = "AIzaSyB877-F99zuVUUH6I90ETAttfhufnjCsTQ";
-</script>
 </html>
