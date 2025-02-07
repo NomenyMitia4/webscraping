@@ -1,11 +1,62 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des pays</title>
+    <link rel="stylesheet" href="{% static 'app/styles/list.css'%}" type="text/css">
 </head>
+
 <body>
-    
+    <form action="" method="post" id="form">
+        {% csrf_token %}
+        <!-- <h2>Selectionner un pays</h2> -->
+        <div class="dropdown">
+            <!-- <div class="scroll-list">
+                <select name="liste_pays" id="liste_pays">
+                    {% for pays in pays %}
+                    <option value="{{ pays.nom }}">{{ pays.nom }}</option>
+                    {% endfor %}
+                </select>
+            </div> -->
+            <!-- <button type="submit" id="btn-submit">VALIDER</button> -->
+        </div>
+    </form>
+    <div class="header">
+        <h1>Selectionner un pays</h1>
+    </div>
+    <div class="content">
+        <div class="list-pays">
+            {% for pays in pays %}
+            <div class="pays">
+                <h2>{{pays.nom}}</h2>
+                <p class="voir"><a href="/detail/{{pays.nom}}">VOIR</a></p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let select = document.getElementById("liste_pays")
+        let form = document.getElementById("form")
+        let submit = document.getElementById('btn-submit')
+
+        // Mettre à jour l'action quand la sélection change
+        select.addEventListener("change", function () {
+            form.action = `/detail/${this.value}/`
+            console.log(form.action)
+        })
+
+        // Empêcher la soumission normale du formulaire
+        submit.addEventListener("click", function (e) {
+            e.preventDefault()
+            form.action = `/detail/${select.value}/`
+            form.submit()
+        })
+    })
+</script>
+
 </html>
