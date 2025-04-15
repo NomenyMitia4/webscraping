@@ -19,4 +19,5 @@ translate = "*"
 python_version = "3.10"
 
 [build]
-  command = "pipenv install --python 3.10 && pipenv run python manage.py collectstatic --noinput"
+  command = "pipenv install --ignore-pipfile && pipenv run python manage.py collectstatic --noinput"
+  publish = "static"
