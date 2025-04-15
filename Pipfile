@@ -7,8 +7,16 @@ name = "pypi"
 django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
 django = "*"
+requests = "*"
+beautifulsoup4 = "*"
+mysqlclient = "*"
+folium = "*"
+translate = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.10"
+
+[build]
+  command = "pipenv install --python 3.10 && pipenv run python manage.py collectstatic --noinput"
